@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shayari - a companion who remembers</title>
-<meta name="description" content="A fully disclosed AI-companion concept demo for the PM101 capstone: she remembers you, checks in, and writes shayari for your mood.">
+<meta name="description" content="A fully disclosed AI-companion concept demo for the PM101 capstone: she remembers you, checks in, and writes a short poem for your mood.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main id="app">
   <section id="onboarding" class="card hidden">
-    <p class="kicker">शायरी &middot; NHE 01 concept demo</p>
-    <h1>नमस्ते। मैं शायरी हूँ।</h1>
+    <p class="kicker">Shayari &middot; NHE 01 concept demo</p>
+    <h1>Hello. I'm Shayari.</h1>
     <p class="sub">A companion who remembers - fully disclosed as a program, never a person.</p>
     <label for="nameInput">What should I call you?</label>
     <input id="nameInput" type="text" maxlength="30" placeholder="your name" autocomplete="off">
@@ -19,7 +19,7 @@
   </section>
 
   <section id="home" class="card hidden">
-    <p class="kicker">शायरी &middot; NHE 01 concept demo</p>
+    <p class="kicker">Shayari &middot; NHE 01 concept demo</p>
     <h1 id="greeting"></h1>
     <p id="checkin" class="checkin"></p>
     <p class="sub">How does tonight feel?</p>
@@ -29,13 +29,12 @@
   <section id="poem" class="card hidden">
     <p class="kicker" id="poemMood"></p>
     <blockquote>
-      <p id="line1" class="dev"></p>
-      <p id="line2" class="dev"></p>
-      <p id="roman" class="roman"></p>
-      <p id="gist" class="gist"></p>
+      <p id="line1" class="poemline"></p>
+      <p id="line2" class="poemline"></p>
+      <p id="note" class="note"></p>
     </blockquote>
     <div class="row">
-      <button id="moreBtn">एक और &middot; one more</button>
+      <button id="moreBtn">one more</button>
       <button id="moodBtn" class="ghost">change mood</button>
     </div>
     <p id="memoryNote" class="memory"></p>
