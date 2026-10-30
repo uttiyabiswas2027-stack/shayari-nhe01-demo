@@ -25,12 +25,12 @@
   function greet() {
     const visits = state.visits || 0;
     const name = state.name;
-    let g = "नमस्ते, " + name + ".";
-    if (visits > 1) g = "वापस आए, " + name + "। I remembered you.";
+    let g = "Hello, " + name + ".";
+    if (visits > 1) g = "Welcome back, " + name + ". I remembered you.";
     $("greeting").textContent = g;
     let c = hourCheckin();
     if (state.lastMood && visits > 1) {
-      c += " Last time you were feeling " + SHAYARI[state.lastMood].en + " - " + SHAYARI[state.lastMood].label + ".";
+      c += " Last time you were feeling " + SHAYARI[state.lastMood].label + ".";
     }
     $("checkin").textContent = c;
   }
@@ -40,7 +40,7 @@
     wrap.innerHTML = "";
     Object.keys(SHAYARI).forEach((k) => {
       const b = document.createElement("button");
-      b.innerHTML = SHAYARI[k].label + '<span class="en">' + SHAYARI[k].en + "</span>";
+      b.innerHTML = SHAYARI[k].label + '<span class="en">' + SHAYARI[k].hint + "</span>";
       b.onclick = () => pickMood(k);
       wrap.appendChild(b);
     });
@@ -54,22 +54,21 @@
     show("poem");
   }
 
-  function renderPoem(fresh) {
+  function renderPoem() {
     const arr = SHAYARI[currentMood].lines;
     let i;
     do { i = Math.floor(Math.random() * arr.length); } while (arr.length > 1 && i === lastIdx);
     lastIdx = i;
     const p = arr[i];
-    $("poemMood").textContent = SHAYARI[currentMood].label + " · " + SHAYARI[currentMood].en + " — for " + state.name;
-    $("line1").textContent = p.d1;
-    $("line2").textContent = p.d2;
-    $("roman").textContent = p.r;
-    $("gist").textContent = p.g;
-    const n = state.poemCount = (state.poemCount || 0) + (fresh ? 1 : 1);
+    $("poemMood").textContent = SHAYARI[currentMood].label + " - for " + state.name;
+    $("line1").textContent = p.l1;
+    $("line2").textContent = p.l2;
+    $("note").textContent = p.note;
+    state.poemCount = (state.poemCount || 0) + 1;
     store.set(state);
     $("memoryNote").textContent =
-      "She remembers (only in this browser): " + state.name + " · visit " + state.visits +
-      " · " + state.poemCount + " couplets shared · last mood: " + SHAYARI[state.lastMood].label + ".";
+      "She remembers (only in this browser): " + state.name + " - visit " + state.visits +
+      " - " + state.poemCount + " poems shared - last mood: " + SHAYARI[state.lastMood].label + ".";
   }
 
   $("startBtn").onclick = () => {
@@ -81,7 +80,7 @@
     greet(); show("home");
   };
   $("nameInput").addEventListener("keydown", (e) => { if (e.key === "Enter") $("startBtn").click(); });
-  $("moreBtn").onclick = () => renderPoem(false);
+  $("moreBtn").onclick = () => renderPoem();
   $("moodBtn").onclick = () => { greet(); show("home"); };
   $("wipeBtn").onclick = () => { store.clear(); state = {}; location.reload(); };
 
