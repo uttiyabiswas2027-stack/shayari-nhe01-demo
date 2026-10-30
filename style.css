@@ -49,8 +49,8 @@ button.small { padding: 6px 12px; font-size: 12px; }
 .moods button .en { display: block; font-size: 12px; color: #93a4bb; margin-top: 4px; }
 .checkin { color: #d9b36c; font-size: 15px; margin-bottom: 18px; line-height: 1.5; font-style: italic; }
 blockquote { margin: 10px 0 24px; }
-.dev { font-size: 21px; line-height: 1.8; margin-bottom: 4px; }
-.roman { color: #93a4bb; font-size: 14px; font-style: italic; margin: 14px 0 6px; line-height: 1.6; }
+.poemline { font-size: 21px; line-height: 1.8; margin-bottom: 4px; }
+.note { color: #93a4bb; font-size: 14px; font-style: italic; margin: 14px 0 6px; line-height: 1.6; }
 .gist { color: #6b7c94; font-size: 13px; font-family: Arial, sans-serif; line-height: 1.5; }
 .row { display: flex; gap: 12px; flex-wrap: wrap; }
 .memory { margin-top: 20px; color: #6b7c94; font-size: 12.5px; font-family: Arial, sans-serif; line-height: 1.5; }
